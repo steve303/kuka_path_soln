@@ -13,6 +13,7 @@ Your task: generate insights. The more graphs and sick visualizations, the bette
 ## A word of caution about those logs...
  - The tracker points are logged in the tracker frame of reference. You are going to want to transform those points into the frame of reference of the path. No idea what the transform is between tracker points and the coordinates of the path, but I do know that there is no shear (just rotation and translation).  
  - Remember how I said that the robots don't go where they are supposed to go? Well, that's not entirely true. I threw in some "registration points" at the beginning of the commanded path. You'll notice those as points where the robot is commanded to go-to and dwell-at some positions in space. You can assume that the robot accurately hits those points. This should help transform the tracker readings into the coordinates of the path. 
+     - Hint: check out the procrustes problem or the Kabsch algorithm if you're stuck here. 
  - Both the t_trk and the t_pth columns are in the same units: 19-digit unix timestamp. There might be a bit of clock desynchrony, but you can assume that's too small to worry about for now. 
  - The data here is very raw and potentially insufficient for grand conclusions. Do your best, and document your assumptions. 
 
